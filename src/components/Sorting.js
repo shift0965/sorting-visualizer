@@ -140,7 +140,7 @@ class Sorting extends Component{
             SelectionSort(array, colorKeys , steps, colorSteps);
             
             for(let i=0; i<array.length; i++){
-                if(array[i] != arraySort[i])
+                if(array[i] !== arraySort[i])
                     console.log(false);
                     break
             }
