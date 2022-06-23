@@ -8,7 +8,6 @@ import SelectBox from "./SelectBox";
 
 const theme = {
     color: { 
-        
         black: '#3c3c3c',
         red: '#f85c5d',
         purple: '#c36ae7',
@@ -17,9 +16,13 @@ const theme = {
         yellow: '#ffe94a',
         sky: '#61c2f1',
         grass: '#94d36a',
-        
         skin: '#fbcfb1',
         blush: '#fd9f9b',
+    },
+
+    param:{
+       speed : 50,
+       numBar : 50 
     }
 }
 class Sorting extends Component{
@@ -131,7 +134,8 @@ class Sorting extends Component{
 
     HandleSpeedSlider = (e) => {
         let value = e.target.value;
-        let delay = 100/value;
+        let delay = 200/value - 20;
+        theme.param.speed = (value-1)*25;
         this.clearStep(() => {
             this.setState({
                 delay: delay
@@ -142,6 +146,7 @@ class Sorting extends Component{
     HandleNumBarSlider = (e) => {
         let value = e.target.value;
         let count = value*8;
+        theme.param.numBar = (value-1)*25;
         this.setState({
             count : count
         }, () => this.generateElements())
@@ -185,7 +190,7 @@ class Sorting extends Component{
                             <div className="left">
                                 <div className="sliderContainer">
                                     <label>Speed</label>
-                                    <input type="range" className="Slider" max='5' min='1' defaultValue="3" step='1' onChange={this.HandleSpeedSlider}/>
+                                    <input type="range" className="speed" max='5' min='1' defaultValue="3" step='1' onChange={this.HandleSpeedSlider}/>
                                     <div className="valueTag">
                                         <span>Slow</span>
                                         <span>Fast</span>
@@ -194,7 +199,7 @@ class Sorting extends Component{
 
                                 <div className="sliderContainer">
                                     <label>Num of bar</label>
-                                    <input type="range" className="Slider" max='5' min='1' defaultValue="3" step='1' onChange={this.HandleNumBarSlider}/>
+                                    <input type="range" className="numBar" max='5' min='1' defaultValue="3" step='1' onChange={this.HandleNumBarSlider}/>
                                     <div className="valueTag">
                                         <span>Few</span>
                                         <span>Many</span>
