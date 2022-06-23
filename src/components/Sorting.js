@@ -8,15 +8,12 @@ import SelectBox from "./SelectBox";
 
 const Buzz = {
     color: {
-        green: '#97ce62',
-        white: '#f9e2c2',
-        purple: '#875893',
-        face: '#fde0b3',
-        sky: '#9ae7c5',
-        red: '#d8566c',
-        black: '#36342d',
-        yellow: '#ffea52',
-        blue: '#1b3567'
+        black: '#2b262d',
+        purple: '#c184a4',
+        blue: '#647295',
+        white: '#f2ebe5',
+        sky: '#b3dee5',
+        yellow: '#f1cb91'
     }
 
 }

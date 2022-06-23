@@ -6,19 +6,20 @@ export const Body = styled.div`
 `
 
 export const Header = styled.div`
+    z-index: 1;
     height: 200px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: ${props => props.theme.color.green};
+    background-color: ${props => props.theme.color.purple};
 
 .title{
     display: flex;
     height: 140px;
     align-items: center;
     h1{
-        color: ${props => props.theme.color.face};;
+        color: ${props => props.theme.color.white};
         font-size: 50px;
     }   
 }
@@ -49,10 +50,23 @@ export const Header = styled.div`
             border: none;
             margin: 0px 10px;
             border-radius: 20px;
+            color: ${p => p.theme.color.white};
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .sort{
+            background-color: ${p => p.theme.color.blue};
+        }
+
+        .reset{
+            background-color: ${p => p.theme.color.blue};
+            
+
         }
         
         button:hover{
-            background-color: pink;
+            transform: scale(0.95);
         }
     }
 }
@@ -62,5 +76,5 @@ export const Header = styled.div`
 export const Section = styled.div`
     display: flex;
     justify-content: center;
-    
+    z-index: 0;
 `

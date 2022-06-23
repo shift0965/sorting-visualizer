@@ -7,20 +7,23 @@ const StyledBar =  styled.div`
     display: flex;
     margin: 10px 5px;
     width: 15px;
-
+    
     &.pre{
         background-color: ${p => p.theme.color.purple};
+        z-index: 2;
     }
 
     &.sorting{
-        background-color: ${p => p.theme.color.red};
+        background-color: ${p => p.theme.color.yellow};
         transform: scale(1.2);
         transition: transform 0.2s;
+        z-index: 2;
     }
 
     &.finished{
         background-color: ${p => p.theme.color.blue};
         transition: 0.1s;
+        z-index: 2;
     }
 `
 

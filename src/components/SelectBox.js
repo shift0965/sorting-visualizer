@@ -6,19 +6,19 @@ const StyledBox = styled.div`
     flex-direction: column;
     position: relative;
     height: 50px;
+    color: ${p => p.theme.color.white};
 
 .selected{
     padding-left: 15px;
-    color: ${p => p.theme.color.black};
     font-size: 22px;
-    background-color: ${p => p.theme.color.sky};
+    background-color: ${p => p.theme.color.blue};
     position: relative;
     display: flex;
     width: 300px;
     height: 50px;
     align-items: center;
     border-radius: 8px;
-    z-index:2;
+    z-index:20;
 }
 
 .box_btn{
@@ -29,6 +29,7 @@ const StyledBox = styled.div`
     display: flex;
     flex-direction: column;
     cursor:pointer;
+    z-index: 99;
 }
 
 .box_btn .bar{
@@ -74,7 +75,7 @@ const StyledBox = styled.div`
     position: absolute;
     display: flex;
     flex-direction: column;
-    background-color: ${p => p.theme.color.sky};
+    background-color: ${p => p.theme.color.blue};
     border-radius: 8px;
     overflow: hidden;
 
@@ -85,9 +86,10 @@ const StyledBox = styled.div`
 }
 
 .option_container.active{
+    z-index: 10;
     max-height: 500%;
     top: 60px;
-    opacity: 0.9;
+    opacity: 0.95;
     transition:all, 0.5s;
 }
 
@@ -102,7 +104,6 @@ const StyledBox = styled.div`
 }
 
 label{
-    color: ${p => p.theme.color.black};
     font-size: 22px;
     padding-left: 15px;
     display: flex;
