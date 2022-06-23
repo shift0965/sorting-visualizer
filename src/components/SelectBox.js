@@ -9,15 +9,16 @@ const StyledBox = styled.div`
     color: ${p => p.theme.color.white};
 
 .selected{
-    padding-left: 15px;
+    padding-left: 18px;
     font-size: 22px;
-    background-color: ${p => p.theme.color.blue};
+    font-weight: 600;
+    background-color: ${p => p.theme.color.green};
     position: relative;
     display: flex;
-    width: 300px;
+    width: 250px;
     height: 50px;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 20px;
     z-index:20;
 }
 
@@ -75,8 +76,8 @@ const StyledBox = styled.div`
     position: absolute;
     display: flex;
     flex-direction: column;
-    background-color: ${p => p.theme.color.blue};
-    border-radius: 8px;
+    background-color: ${p => p.theme.color.green};
+    border-radius: 12px;
     overflow: hidden;
 
     max-height: 50px;
@@ -99,13 +100,14 @@ const StyledBox = styled.div`
 }
 
 .option:hover{
-    background-color: ${p => p.theme.color.yellow};
+    background-color: ${p => p.theme.color.red};
     transition: 0.3s;
 }
 
 label{
     font-size: 22px;
-    padding-left: 15px;
+    font-weight: 600;
+    padding-left: 18px;
     display: flex;
     align-items: center;
     width: 100%;
@@ -122,7 +124,7 @@ const SelectBox = ({Index, setIndex}) => {
     
     const [active, setActive] = useState(false);
 
-    const algorithms = ["bubble", "selection"];
+    const algorithms = ["Bubble sort", "Selection sort"];
     
 
     const Trigger = (e) => {

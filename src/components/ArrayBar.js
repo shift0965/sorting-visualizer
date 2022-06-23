@@ -7,9 +7,11 @@ const StyledBar =  styled.div`
     display: flex;
     margin: 10px 5px;
     width: 15px;
+    border-radius: 6px;
+    
     
     &.pre{
-        background-color: ${p => p.theme.color.purple};
+        background-color: ${p => p.theme.color.skin};
         z-index: 2;
     }
 
@@ -21,7 +23,7 @@ const StyledBar =  styled.div`
     }
 
     &.finished{
-        background-color: ${p => p.theme.color.blue};
+        background-color: ${p => p.theme.color.blush};
         transition: 0.1s;
         z-index: 2;
     }

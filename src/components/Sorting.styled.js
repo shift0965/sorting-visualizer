@@ -1,22 +1,21 @@
 import styled from "styled-components"
 
 export const Body = styled.div`
-    background-color: ${props => props.theme.color.white};
+    background-color: ${props => props.theme.color.sky};
     height: 100vh;
 `
 
 export const Header = styled.div`
     z-index: 1;
-    height: 200px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: ${props => props.theme.color.purple};
+    background-color: ${props => props.theme.color.grass};
 
 .title{
     display: flex;
-    height: 140px;
+    height: 130px;
     align-items: center;
     h1{
         color: ${props => props.theme.color.white};
@@ -25,30 +24,53 @@ export const Header = styled.div`
 }
 
 .butBar{
-    max-width: 1000px;
-    height: 60px;
+    max-width: 1300px;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: top;
+    flex-wrap: wrap;
+    align-items: center;
 
     .left{
         color: white;
-        width: 250px;
+        display: flex;
+        justify-content: space-around;
+        width: 400px;
+
+        .sliderContainer{
+            color: ${p => p.theme.color.black};
+            font-weight: 600;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .valueTag{
+                font-size: 18px;
+                width: 120%;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    
     }
 
     .middle{
+        width: 300px;
         display: flex;
         justify-content: center;
     }
 
     .right{
+        width: 300px;
         display: flex;
+        justify-content: center;
         button{
             height: 50px;
             width: 80px;
             border: none;
-            margin: 0px 10px;
+            margin-left: 30px;
             border-radius: 20px;
             color: ${p => p.theme.color.white};
             font-size: 20px;
@@ -56,11 +78,11 @@ export const Header = styled.div`
         }
 
         .sort{
-            background-color: ${p => p.theme.color.blue};
+            background-color: ${p => p.theme.color.red};
         }
 
         .reset{
-            background-color: ${p => p.theme.color.blue};
+            background-color: ${p => p.theme.color.purple};
             
 
         }
@@ -70,8 +92,7 @@ export const Header = styled.div`
         }
     }
 }
-`
-
+` 
 
 export const Section = styled.div`
     display: flex;
