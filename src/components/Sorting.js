@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { ThemeProvider } from "styled-components";
 import { Section, Header, Body } from "./Sorting.styled";
 import ArrayBar from './ArrayBar'
-import { BubbleSort, SelectionSort} from "./SortingAlgorithm";
+import { BubbleSort, InsertionSort, MergeSort, SelectionSort} from "./SortingAlgorithm";
 import SelectBox from "./SelectBox";
 
 
@@ -35,11 +35,13 @@ class Sorting extends Component{
         timeouts: [],
         currentStep: 0,
         count: 24,
-        delay: 30,
-        algorithms: [BubbleSort, SelectionSort],
+        delay: 85,
+        algorithms: [BubbleSort, SelectionSort, MergeSort, InsertionSort],
         working: false,
         algIndex: 0
     }
+    
+    
 
 	componentDidMount() {
 		this.generateElements();
@@ -134,7 +136,7 @@ class Sorting extends Component{
 
     HandleSpeedSlider = (e) => {
         let value = e.target.value;
-        let delay = 200/value - 20;
+        let delay = Math.floor(180/value) + 15;
         theme.param.speed = (value-1)*25;
         this.clearStep(() => {
             this.setState({
@@ -152,17 +154,26 @@ class Sorting extends Component{
         }, () => this.generateElements())
     }
 
+    //testing algorithm
+    /*
     Printout = () => {
-        for(let i=0; i<100; i++){
+        for(let i=0; i<1; i++){
             this.generateElements();
             let array = this.state.array.slice();
-            let arraySort = this.state.array.sort((a,b) => (a-b));
+            let arraySort = this.state.array.slice().sort((a,b) => (a-b));
 
             let colorKeys = this.state.colorKeys.slice();
-            let steps = [array];
-            let colorSteps = [colorKeys];
+            let steps = [this.state.array.slice()];
+            let colorSteps = [this.state.colorKeys.slice()];
 
-            SelectionSort(array, colorKeys , steps, colorSteps);
+            MergeSort(array, colorKeys , steps, colorSteps);
+            console.log(array);
+            console.log(steps);
+
+            
+            //MergeSort(array, colorKeys , steps, colorSteps);
+            
+            
             
             for(let i=0; i<array.length; i++){
                 if(array[i] !== arraySort[i])
@@ -172,6 +183,8 @@ class Sorting extends Component{
             console.log(true);
         }
     }
+
+    */
 
     render() {
         const Bars = this.state.array.map((item, index) => {

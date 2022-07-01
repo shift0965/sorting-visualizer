@@ -20,6 +20,7 @@ const StyledBox = styled.div`
     align-items: center;
     border-radius: 20px;
     z-index:20;
+    cursor: pointer;
 }
 
 .box_btn{
@@ -46,28 +47,28 @@ const StyledBox = styled.div`
     left: 7px;
     rotate: 45deg;
     transform: rotate(45deg);
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 .box_btn .bar:nth-child(2){
     left: 19px;
     rotate: 45deg;
     transform: rotate(-45deg);
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 .box_btn.active .bar:nth-child(1){
     left: 19px;
     rotate: 45deg;
     transform: rotate(45deg);
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 .box_btn.active .bar:nth-child(2){
     left: 7px;
     rotate: 45deg;
     transform: rotate(-45deg);
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 
@@ -80,17 +81,17 @@ const StyledBox = styled.div`
     border-radius: 12px;
     overflow: hidden;
 
-    max-height: 50px;
-    top: 0px;
+    transform: scaleY(0.2);
+    top: -20px;
     opacity: 0;
     transition:all, 0.5s;
 }
 
 .option_container.active{
+    transform: scaleY(1);
     z-index: 10;
-    max-height: 500%;
     top: 60px;
-    opacity: 0.95;
+    opacity: 0.9;
     transition:all, 0.5s;
 }
 
@@ -124,7 +125,7 @@ const SelectBox = ({Index, setIndex}) => {
     
     const [active, setActive] = useState(false);
 
-    const algorithms = ["Bubble sort", "Selection sort"];
+    const algorithms = ["Bubble sort", "Selection sort", "Merge sort", "Insertion sort"];
     
 
     const Trigger = (e) => {
@@ -138,9 +139,9 @@ const SelectBox = ({Index, setIndex}) => {
 
     return(
         <StyledBox>
-            <div className = "selected">
+            <div className = "selected" onClick={Trigger}>
                 {algorithms[Index]}
-                <div className = {`box_btn ${active? "active":""}`} onClick={Trigger}>
+                <div className = {`box_btn ${active? "active":""}`}>
                     <span className="bar"></span>
                     <span className="bar"></span>
                 </div>
