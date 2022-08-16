@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ThemeProvider } from "styled-components";
-import { Section, Header, Body } from "./Sorting.styled";
+import { Header, Body } from "./Sorting.styled";
 import ArrayBar from './ArrayBar'
 import { BubbleSort, InsertionSort, MergeSort, SelectionSort} from "./SortingAlgorithm";
 import SelectBox from "./SelectBox";
@@ -221,14 +221,14 @@ class Sorting extends Component{
                             </div>
                             <div className="middle"><SelectBox Index={this.state.algIndex} setIndex={this.SetAlgIndex}/></div>
                             <div className="right">
-                                <button className="reset" onClick={this.generateElements}>Reset</button>
-                                <button className="sort" onClick={this.handleStart}>Sort</button>
+                                <button className="reset" onClick={this.generateElements}><h3>Reset</h3></button>
+                                <button className="sort" onClick={this.handleStart}><h3>Sort</h3></button>
                             </div>      
                         </div>
                     </Header>
-                    <Section>
+                    <div className="flex md:flex-wrap md:flex-row flex-col justify-center md:py-2 py-5">
                         {Bars}
-                    </Section>
+                    </div>
                 </Body>
             </ThemeProvider>
         )

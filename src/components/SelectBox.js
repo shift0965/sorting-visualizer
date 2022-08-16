@@ -7,6 +7,7 @@ const StyledBox = styled.div`
     position: relative;
     height: 50px;
     color: ${p => p.theme.color.white};
+    margin-bottom: 10px;
 
 .selected{
     padding-left: 18px;
@@ -46,28 +47,22 @@ const StyledBox = styled.div`
 .box_btn .bar:nth-child(1){
     left: 7px;
     rotate: 45deg;
-    transform: rotate(45deg);
     transition: 0.4s;
 }
 
 .box_btn .bar:nth-child(2){
     left: 19px;
-    rotate: 45deg;
-    transform: rotate(-45deg);
+    rotate: -45deg;
     transition: 0.4s;
 }
 
 .box_btn.active .bar:nth-child(1){
     left: 19px;
-    rotate: 45deg;
-    transform: rotate(45deg);
     transition: 0.4s;
 }
 
 .box_btn.active .bar:nth-child(2){
     left: 7px;
-    rotate: 45deg;
-    transform: rotate(-45deg);
     transition: 0.4s;
 }
 
@@ -140,7 +135,7 @@ const SelectBox = ({Index, setIndex}) => {
     return(
         <StyledBox>
             <div className = "selected" onClick={Trigger}>
-                {algorithms[Index]}
+                <h3>{algorithms[Index]}</h3>
                 <div className = {`box_btn ${active? "active":""}`}>
                     <span className="bar"></span>
                     <span className="bar"></span>

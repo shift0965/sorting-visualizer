@@ -1,6 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -8,4 +11,13 @@ body {
 *{
   box-sizing: border-box;
   font-family: Helvetica;
+}
+
+
+h1{
+  @apply md:text-4xl font-bold text-xl
+}
+
+h3{
+  @apply md:text-lg text-sm
 }

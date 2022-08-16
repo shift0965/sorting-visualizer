@@ -2,7 +2,8 @@ import styled from "styled-components"
 
 export const Body = styled.div`
     background-color: ${props => props.theme.color.sky};
-    height: 100vh;
+    min-height: 100vh;
+    height: fit-content;
 `
 
 export const Header = styled.div`
@@ -19,7 +20,6 @@ export const Header = styled.div`
     align-items: center;
     h1{
         color: ${props => props.theme.color.white};
-        font-size: 50px;
     }   
 }
 
@@ -27,11 +27,11 @@ export const Header = styled.div`
     max-width: 1300px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
 
     .left{
+        
         color: white;
         display: flex;
         justify-content: space-around;
@@ -98,15 +98,12 @@ export const Header = styled.div`
     .right{
         width: 350px;
         display: flex;
-        justify-content: right;
+        justify-content: center;
         button{
-            height: 50px;
-            width: 80px;
             border: none;
             margin: 0px 30px;
             border-radius: 20px;
             color: ${p => p.theme.color.white};
-            font-size: 20px;
             font-weight: 600;
         }
 
@@ -123,10 +120,41 @@ export const Header = styled.div`
         }
     }
 }
-` 
 
-export const Section = styled.div`
-    display: flex;
-    justify-content: center;
-    z-index: 0;
-`
+@media screen and (min-width: 768px){
+    .butBar{
+        justify-content: space-between;
+    }
+    .right{
+        order: 2;
+        margin: 10px 0px;
+        button{
+            height: 50px;
+            width: 80px;
+        } 
+    }
+
+    .middle{
+        order:1;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .butBar{
+        justify-content: center;
+    }
+    .right{
+        order: 1;
+        margin: 10px 0px;
+        button{
+            height: 40px;
+            width: 70px;
+        } 
+    }
+
+    .middle{
+        order:2;
+    }
+}
+
+` 

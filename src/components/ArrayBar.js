@@ -5,11 +5,17 @@ import styled from 'styled-components'
 
 const StyledBar =  styled.div`
     display: flex;
-    margin: 10px 5px;
     width: 15px;
+    margin: 10px 5px;
     border-radius: 6px;
-    
-    
+    height : ${(props) => props.height + 'px'};
+
+    @media only screen and (max-width: 768px){
+        height: 12px;
+        margin: 5px 10px;
+        width: ${(props) => props.height*0.7 + 'px'};
+    }
+
     &.pre{
         background-color: ${p => p.theme.color.skin};
         z-index: 2;
@@ -27,6 +33,8 @@ const StyledBar =  styled.div`
         transition: 0.1s;
         z-index: 2;
     }
+
+    
 `
 
 const ArrayBar = ({index, length, colorKey}) => {
@@ -39,9 +47,7 @@ const ArrayBar = ({index, length, colorKey}) => {
     }, [length])
 
     return(
-        <div>
-            <StyledBar className={stateKey[colorKey]} style={{height: len}}></StyledBar>
-        </div>
+        <StyledBar className={stateKey[colorKey]} height={len}></StyledBar>
     )
 }
 
