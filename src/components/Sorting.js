@@ -232,7 +232,7 @@ class Sorting extends Component{
                             </div>      
                         </div>
                     </Header>
-                    <div className="flex md:flex-wrap md:flex-row flex-col justify-center md:py-2 py-5">
+                    <div className="flex md:flex-wrap md:flex-row flex-col justify-center md:py-2 pt-5 pb-14">
                         {Bars}
                     </div>
                 </Body>

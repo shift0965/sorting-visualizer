@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
 export const Body = styled.div`
-    background-color: ${props => props.theme.color.sky};
     min-height: 100vh;
     height: fit-content;
 `

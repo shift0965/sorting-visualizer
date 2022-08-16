@@ -21,3 +21,7 @@ h1{
 h3{
   @apply text-lg
 }
+
+html{
+  background-color: #61c2f1;
+}
