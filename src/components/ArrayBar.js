@@ -5,13 +5,13 @@ import styled from 'styled-components'
 
 const StyledBar =  styled.div`
     display: flex;
-    width: 15px;
+    width: 13px;
     margin: 10px 5px;
     border-radius: 6px;
     height : ${(props) => props.height + 'px'};
 
     @media only screen and (max-width: 768px){
-        height: 12px;
+        height: 10px;
         margin: 5px 10px;
         width: ${(props) => props.height*0.7 + 'px'};
     }

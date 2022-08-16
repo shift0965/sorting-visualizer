@@ -20,6 +20,12 @@ const theme = {
         blush: '#fd9f9b',
     },
 
+    variable:{
+        delayOffset: 30,
+        delayVar: 250,
+        numBarVar: 10
+    },
+
     param:{
        speed : 50,
        numBar : 50 
@@ -34,8 +40,8 @@ class Sorting extends Component{
         colorSteps: [],
         timeouts: [],
         currentStep: 0,
-        count: 24,
-        delay: 85,
+        count: 3*theme.variable.numBarVar,
+        delay: theme.variable.delayVar/3 - theme.variable.delayOffset,
         algorithms: [BubbleSort, SelectionSort, MergeSort, InsertionSort],
         working: false,
         algIndex: 0
@@ -136,7 +142,7 @@ class Sorting extends Component{
 
     HandleSpeedSlider = (e) => {
         let value = e.target.value;
-        let delay = Math.floor(180/value) + 15;
+        let delay = Math.floor(theme.variable.delayVar/value) - theme.variable.delayOffset;
         theme.param.speed = (value-1)*25;
         this.clearStep(() => {
             this.setState({
@@ -147,7 +153,7 @@ class Sorting extends Component{
 
     HandleNumBarSlider = (e) => {
         let value = e.target.value;
-        let count = value*8;
+        let count = value * theme.variable.numBarVar;
         theme.param.numBar = (value-1)*25;
         this.setState({
             count : count
@@ -196,7 +202,7 @@ class Sorting extends Component{
             <ThemeProvider theme={theme}>
                 <Body>
                     <Header className='functionBar'>
-                        <div className="title">
+                        <div className="title md:h-32 h-16 text-center">
                         <h1>sorting algorithms visualizer</h1>
                         </div>
                         <div className="butBar">

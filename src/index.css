@@ -15,9 +15,9 @@ body {
 
 
 h1{
-  @apply md:text-4xl font-bold text-xl
+  @apply md:text-4xl font-bold text-2xl
 }
 
 h3{
-  @apply md:text-lg text-sm
+  @apply text-lg
 }

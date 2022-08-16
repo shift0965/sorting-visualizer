@@ -16,7 +16,6 @@ export const Header = styled.div`
 
 .title{
     display: flex;
-    height: 130px;
     align-items: center;
     h1{
         color: ${props => props.theme.color.white};
@@ -100,6 +99,8 @@ export const Header = styled.div`
         display: flex;
         justify-content: center;
         button{
+            height: 50px;
+            width: 80px;
             border: none;
             margin: 0px 30px;
             border-radius: 20px;
@@ -128,10 +129,6 @@ export const Header = styled.div`
     .right{
         order: 2;
         margin: 10px 0px;
-        button{
-            height: 50px;
-            width: 80px;
-        } 
     }
 
     .middle{
@@ -146,10 +143,6 @@ export const Header = styled.div`
     .right{
         order: 1;
         margin: 10px 0px;
-        button{
-            height: 40px;
-            width: 70px;
-        } 
     }
 
     .middle{

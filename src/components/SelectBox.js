@@ -135,7 +135,7 @@ const SelectBox = ({Index, setIndex}) => {
     return(
         <StyledBox>
             <div className = "selected" onClick={Trigger}>
-                <h3>{algorithms[Index]}</h3>
+                {algorithms[Index]}
                 <div className = {`box_btn ${active? "active":""}`}>
                     <span className="bar"></span>
                     <span className="bar"></span>
