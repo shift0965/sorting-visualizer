@@ -189,38 +189,44 @@ export const QuickSort = (array, colorKeys, steps, colorSteps) => {
     colorSteps.push([...colorKeys]);
   };
 
-  const swap = (i, j) => {
-    if (i === j) return;
-    colorKeys[i] = 1;
-    colorKeys[j] = 1;
-    snap();
-    colorKeys[i] = 0;
-    colorKeys[j] = 0;
-
-    const t = array[i];
-    array[i] = array[j];
-    array[j] = t;
-  };
-
   const partition = (lo, hi) => {
-    const pivotVal = array[hi];
-    let i = lo;
+    const pivotIdx = hi;
+    const pivotVal = array[pivotIdx];
 
+    colorKeys[pivotIdx] = 1;
+    snap();
+
+    let i = lo;
     for (let j = lo; j < hi; j++) {
-      // compare j with pivot (visualize)
       colorKeys[j] = 1;
-      colorKeys[hi] = 1;
       snap();
       colorKeys[j] = 0;
-      colorKeys[hi] = 0;
 
       if (array[j] < pivotVal) {
-        swap(i, j);
+        colorKeys[i] = 1;
+        colorKeys[j] = 1;
+        snap();
+        colorKeys[i] = 0;
+        colorKeys[j] = 0;
+
+        const t = array[i];
+        array[i] = array[j];
+        array[j] = t;
+
         i++;
       }
     }
 
-    swap(i, hi);
+    colorKeys[i] = 1;
+    snap();
+    colorKeys[i] = 0;
+
+    const t = array[i];
+    array[i] = array[pivotIdx];
+    array[pivotIdx] = t;
+
+    colorKeys[pivotIdx] = 0;
+
     return i;
   };
 

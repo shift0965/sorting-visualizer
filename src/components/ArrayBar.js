@@ -23,7 +23,6 @@ const StyledBar =  styled.div`
 
     &.sorting{
         background-color: ${p => p.theme.color.yellow};
-        transform: scale(1.1);
         transition: transform 0.2s;
         z-index: 2;
     }
