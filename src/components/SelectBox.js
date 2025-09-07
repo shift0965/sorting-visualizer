@@ -120,7 +120,7 @@ const SelectBox = ({Index, setIndex}) => {
     
     const [active, setActive] = useState(false);
 
-    const algorithms = ["Bubble sort", "Selection sort", "Merge sort", "Insertion sort"];
+    const algorithms = ["Bubble sort", "Selection sort", "Merge sort", "Insertion sort", "Quick sort"];
     
 
     const Trigger = (e) => {

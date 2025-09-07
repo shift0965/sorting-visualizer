@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { ThemeProvider } from "styled-components";
 import { Header, Body } from "./Sorting.styled";
 import ArrayBar from './ArrayBar'
-import { BubbleSort, InsertionSort, MergeSort, SelectionSort} from "./SortingAlgorithm";
+import { BubbleSort, InsertionSort, MergeSort, SelectionSort, QuickSort } from "./SortingAlgorithm";
 import SelectBox from "./SelectBox";
 
 
@@ -42,13 +42,11 @@ class Sorting extends Component{
         currentStep: 0,
         count: 3*theme.variable.numBarVar,
         delay: theme.variable.delayVar/3 - theme.variable.delayOffset,
-        algorithms: [BubbleSort, SelectionSort, MergeSort, InsertionSort],
+        algorithms: [BubbleSort, SelectionSort, MergeSort, InsertionSort, QuickSort],
         working: false,
         algIndex: 0
     }
     
-    
-
 	componentDidMount() {
 		this.generateElements();
 	}
@@ -129,8 +127,6 @@ class Sorting extends Component{
             let steps = [];
             let colorSteps = [];
 
-            //BubbleSort(array, colorKeys , steps, colorSteps);
-            //SelectionSort(array, colorKeys , steps, colorSteps);
             this.state.algorithms[this.state.algIndex](array, colorKeys , steps, colorSteps);
 
             this.setState({
@@ -159,38 +155,6 @@ class Sorting extends Component{
             count : count
         }, () => this.generateElements())
     }
-
-    //testing algorithm
-    /*
-    Printout = () => {
-        for(let i=0; i<1; i++){
-            this.generateElements();
-            let array = this.state.array.slice();
-            let arraySort = this.state.array.slice().sort((a,b) => (a-b));
-
-            let colorKeys = this.state.colorKeys.slice();
-            let steps = [this.state.array.slice()];
-            let colorSteps = [this.state.colorKeys.slice()];
-
-            MergeSort(array, colorKeys , steps, colorSteps);
-            console.log(array);
-            console.log(steps);
-
-            
-            //MergeSort(array, colorKeys , steps, colorSteps);
-            
-            
-            
-            for(let i=0; i<array.length; i++){
-                if(array[i] !== arraySort[i])
-                    console.log(false);
-                    break
-            }
-            console.log(true);
-        }
-    }
-
-    */
 
     render() {
         const Bars = this.state.array.map((item, index) => {

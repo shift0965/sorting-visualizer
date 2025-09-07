@@ -1,5 +1,4 @@
 export const BubbleSort = (array, colorKeys, steps, colorSteps) =>{
-
     for(let i=0; i<array.length; i++){
         for(let j=0; j<array.length-1-i; j++){
             if(array[j] > array[j+1]){
@@ -23,7 +22,6 @@ export const BubbleSort = (array, colorKeys, steps, colorSteps) =>{
     }
     steps.push([...array]);
     colorSteps.push([...colorKeys]);
-
 }
 
 
@@ -184,3 +182,61 @@ export const InsertionSort = (array, colorKeys, steps, colorSteps) => {
     colorSteps.push([...colorKeys]);
     steps.push([...array]);
 }
+
+export const QuickSort = (array, colorKeys, steps, colorSteps) => {
+  const snap = () => {
+    steps.push([...array]);
+    colorSteps.push([...colorKeys]);
+  };
+
+  const swap = (i, j) => {
+    if (i === j) return;
+    colorKeys[i] = 1;
+    colorKeys[j] = 1;
+    snap();
+    colorKeys[i] = 0;
+    colorKeys[j] = 0;
+
+    const t = array[i];
+    array[i] = array[j];
+    array[j] = t;
+  };
+
+  const partition = (lo, hi) => {
+    const pivotVal = array[hi];
+    let i = lo;
+
+    for (let j = lo; j < hi; j++) {
+      // compare j with pivot (visualize)
+      colorKeys[j] = 1;
+      colorKeys[hi] = 1;
+      snap();
+      colorKeys[j] = 0;
+      colorKeys[hi] = 0;
+
+      if (array[j] < pivotVal) {
+        swap(i, j);
+        i++;
+      }
+    }
+
+    swap(i, hi);
+    return i;
+  };
+
+  const qs = (lo, hi) => {
+    if (lo >= hi) return;
+    const p = partition(lo, hi);
+    qs(lo, p - 1);
+    qs(p + 1, hi);
+  };
+
+  if (array.length > 1) qs(0, array.length - 1);
+
+  colorSteps.push([...colorKeys]);
+  steps.push([...array]);
+
+  colorKeys = new Array(colorKeys.length).fill(2);
+  colorSteps.push([...colorKeys]);
+  steps.push([...array]);
+};
