@@ -47,23 +47,23 @@ const StyledBox = styled.div`
 .box_btn .bar:nth-child(1){
     left: 7px;
     rotate: 45deg;
-    transition: 0.4s;
+    transition: 0.3s;
 }
 
 .box_btn .bar:nth-child(2){
     left: 19px;
     rotate: -45deg;
-    transition: 0.4s;
+    transition: 0.3s;
 }
 
 .box_btn.active .bar:nth-child(1){
     left: 19px;
-    transition: 0.4s;
+    transition: 0.3s;
 }
 
 .box_btn.active .bar:nth-child(2){
     left: 7px;
-    transition: 0.4s;
+    transition: 0.3s;
 }
 
 
@@ -79,7 +79,7 @@ const StyledBox = styled.div`
     transform: scaleY(0.2);
     top: -20px;
     opacity: 0;
-    transition:all, 0.5s;
+    transition:all, 0.3s;
 }
 
 .option_container.active{
@@ -87,7 +87,7 @@ const StyledBox = styled.div`
     z-index: 10;
     top: 60px;
     opacity: 0.9;
-    transition:all, 0.5s;
+    transition:all, 0.3s;
 }
 
 .option{
@@ -117,11 +117,11 @@ input{
 `
 
 const SelectBox = ({Index, setIndex}) => {
-    
+
     const [active, setActive] = useState(false);
 
     const algorithms = ["Bubble sort", "Selection sort", "Merge sort", "Insertion sort", "Quick sort"];
-    
+
 
     const Trigger = (e) => {
         setActive(!active);
@@ -154,7 +154,7 @@ const SelectBox = ({Index, setIndex}) => {
 
         </StyledBox>
     )
-    
+
 }
 
 
